@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # devise_for :users
-  resources :users do
-    resources :posts, :except => [:index]
-  end
-
+  # resources :users do
+  #
+  # end
+  resources :posts, :except => [:index]
   resources :tags, :except => [:index]
   resources :pictures
 
