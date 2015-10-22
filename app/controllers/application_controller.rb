@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :username, :avatar) }
-        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :avatar, :username) }
-        devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me, :avatar) }
+        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :avatar, :role) }
+        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :current_password, :avatar, :role) }
+        devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :email, :password, :remember_me, :avatar, :role) }
+    end
+
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to main_app.root_path, :alert => exception.message
     end
 end

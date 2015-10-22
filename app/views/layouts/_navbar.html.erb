@@ -25,6 +25,9 @@
           <%= link_to "Sign up", new_user_registration_path %> |
           <%= link_to "Login", new_user_session_path %>
           <% end %>
+          <% if current_user.role == "admin" %> |
+          <%= link_to "Admin", rails_admin_path %>
+          <%end%>
         </li>
       </ul>
     </div>

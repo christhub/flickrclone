@@ -15,6 +15,12 @@ gem 'bootstrap-sass', '~> 3.3.5'
 # authenticate help from http://guides.railsgirls.com/devise/ and http://codeonhill.com/devise-cancan-and-activeadmin/
 gem 'devise'
 
+# admin
+gem 'rails_admin'
+
+# user authorization
+gem "cancancan"
+
 # upload files help from http://www.peoplecancode.com/tutorials/users-avatars-uploading-images-using-paperclip
 gem 'paperclip', '~> 4.1'
 
